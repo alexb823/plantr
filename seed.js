@@ -2,7 +2,7 @@ const {db, Gardener, Plot, Vegetable} = require('./models.js');
 
 
 db.sync({force: true})
-let veggies;
+// let veggies;
     .then (() => console.log('connected'))
     .then (() => {
         return Vegetable.create({
