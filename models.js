@@ -1,5 +1,13 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://localhost:5432/plantr', {logging: false});
+
+// const db = new Sequelize('postgres://localhost:5432/plantr', { logging: false });
+
+// For cloud9 db
+const db = new Sequelize('ubuntu', 'postgres', 'password', {
+  host: 'localhost',
+  dialect: 'postgres',
+  logging: false,
+});
 
 const Gardener = db.define('gardener', {
     name: Sequelize.STRING,
@@ -19,8 +27,11 @@ const Vegetable = db.define('vegetable', {
 
 Plot.belongsTo(Gardener);
 Gardener.hasOne(Plot);
-Vegetable.belongsToMany(Plot, {through: 'vegetable_plot'});
-Plot.belongsToMany(Vegetable, {through: 'vegetable_plot'});
-Gardener.belongsTo(Vegetable, {as: 'favorite_vegetable'});
+Vegetable.belongsToMany(Plot, { through: 'vegetable_plot' });
+Plot.belongsToMany(Vegetable, { through: 'vegetable_plot' });
+Gardener.belongsTo(Vegetable, { as: 'favorite_vegetable' });
 
-module.exports = {db, Gardener, Plot, Vegetable};
+module.exports = { db, Gardener, Plot, Vegetable };
+
+
+
