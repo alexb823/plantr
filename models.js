@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize('postgres://localhost:5432/plantr', { logging: false });
+const db = new Sequelize(process.env.DATABASE_URL, { logging: false });
 
 // // For cloud9 db
 // const db = new Sequelize('ubuntu', 'postgres', 'password', {
