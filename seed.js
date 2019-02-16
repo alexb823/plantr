@@ -66,7 +66,7 @@ const syncAndSeed = () => {
       ]);
     })
     .catch(err => console.error(err))
-    .finally(() => db.close());
+    // .finally(() => db.close());
 };
 
 module.exports = syncAndSeed;

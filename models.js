@@ -31,4 +31,17 @@ Vegetable.belongsToMany(Plot, { through: 'vegetable_plot' });
 Plot.belongsToMany(Vegetable, { through: 'vegetable_plot' });
 Gardener.belongsTo(Vegetable, { as: 'favoriteVegetable' });
 
-module.exports = { db, Gardener, Plot, Vegetable };
+const getGardenerInfo = theId => {
+  return Gardener.findOne({
+    where: { id: parseInt(theId) },
+    include: [
+      {
+        model: Plot,
+        include: [Vegetable],
+      },
+      { model: Vegetable, as: 'favoriteVegetable' },
+    ],
+  });
+};
+
+module.exports = { db, Gardener, Plot, Vegetable, getGardenerInfo };
