@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path')
 const { Gardener, getGardenerInfo } = require('./models');
 const gardenersList = require('./views/gardenersList');
 const gardenerPage = require('./views/gardenerPage');
@@ -7,6 +8,7 @@ const gardenerPage = require('./views/gardenerPage');
 const app = express();
 
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res, next) => {
   res.redirect('/gardeners');

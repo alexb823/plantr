@@ -3,7 +3,13 @@ const mainLayout = require('./mainLayout');
 
 module.exports = gardenerInfo => {
   return mainLayout(html`
-    <h3 class="text-capitalize mb-4">${gardenerInfo.name}</h3>
+    <h3 class="text-capitalize mb-4">
+      <span class="mr-3"
+        ><img
+          src="/img/${gardenerInfo.name}.jpg"
+          class="rounded-circle avatar-img"/></span
+      >${gardenerInfo.name}
+    </h3>
     <ul class="list-group text-capitalize">
       <li class="list-group-item">
         name: ${gardenerInfo.name}

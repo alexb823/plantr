@@ -15,11 +15,12 @@ module.exports = pageContent => {
           integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
           crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="/css/main.css"/>
       </header>
       <body>
         <div class="container">
           <!-- Page Header -->
-          <h1 class="my-2"><a href="/">Plantr</a></h1>
+          <h1 class="my-2 display-3"><a href="/">Plantr</a></h1>
 
           <!-- Page Content -->
           <dvi class="container">
